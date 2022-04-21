@@ -96,6 +96,6 @@ sliderArrowWrapper.addEventListener( 'click', ( e ) => {
 
 } )
 
-// imgAutomatic()
+imgAutomatic()
 
 
