@@ -1,4 +1,5 @@
 
+const sliderArrowWrapper = document.querySelector( '.slider__arrow-wrapper' )
 const sliderListOptions = document.querySelector( '.slider__list--options' )
 
 let sliderItemImgActive = document.querySelector( '.slider__item--img' )
@@ -74,12 +75,27 @@ sliderListOptions.addEventListener( 'click', ( e ) => {
     const { target: { dataset : { slider:index } } } = e 
     imgIndex = +index
 
-    chooseItemImgAutomatic( +index )
-    chooseItemOptionsAutomatic( +index )
+    chooseItemImgAutomatic( imgIndex )
+    chooseItemOptionsAutomatic( imgIndex )
 
 } )
 
+sliderArrowWrapper.addEventListener( 'click', ( e ) => {
 
-imgAutomatic()
+    const { target: { dataset : { slider:index } } } = e 
+
+    let result = imgIndex + ( +index )
+
+    if( result == 3 ) result = 0
+    else if( result == -1 ) result = 2
+
+    imgIndex = result
+
+    chooseItemImgAutomatic( imgIndex )
+    chooseItemOptionsAutomatic( imgIndex )
+
+} )
+
+// imgAutomatic()
 
 
